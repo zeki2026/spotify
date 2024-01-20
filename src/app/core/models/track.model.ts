@@ -7,5 +7,5 @@ export interface TrackModel{
     duration: number;
     url: string;
     _id: string | number;
-    artist: ArtistModel;
+    artist?: ArtistModel;
 }

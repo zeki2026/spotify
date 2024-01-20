@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -16,7 +17,7 @@ export class SideBarComponent implements OnInit {
 
   customOptions: Array<any> = [];
 
-  constructor(){
+  constructor(private router:Router){
     
   }
 
@@ -25,18 +26,18 @@ export class SideBarComponent implements OnInit {
       {
         name: 'Home',
         icon: 'bi bi-house',
-        router: ['/', 'auth']
+        router: ['/', 'tracks']
       },
       {
         name: 'Buscar',
         icon: 'bi bi-search',
-        router: ['/', 'history']
+        router: ['/', 'auth']
       },
       {
         name: 'Tu biblioteca',
         icon: 'bi bi-collection',
-        router: ['/', 'favorites'],
-        query: { hola: 'mundo' }
+        router: ['/', 'favorite'],
+        query: { hola: 'mundo', as:'as' }
       }
     ]
 
@@ -71,5 +72,15 @@ export class SideBarComponent implements OnInit {
     ]
   }
 
+  goTo($event: any):void{
+    this.router.navigate(['/','favorite'],{
+      queryParams: {
+        kei1: 'values1',
+        kei2: 'values2',
+        kei3: 'values3',
+      }
+    })
+    console.log($event);
+  }
 
 }
