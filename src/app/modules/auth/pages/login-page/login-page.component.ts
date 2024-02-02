@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@modules/auth/services/auth.service';
 
 @Component({
@@ -8,10 +9,10 @@ import { AuthService } from '@modules/auth/services/auth.service';
   styleUrl: './login-page.component.css'
 })
 export class LoginPageComponent implements OnInit {
-
+  errorSession: boolean = false;
   formLogin: FormGroup = new FormGroup({});
   
-  constructor(private _AuthService: AuthService) {
+  constructor(private _AuthService: AuthService, private router: Router) {
   }
   ngOnInit(): void {
       this.formLogin = new FormGroup({
@@ -28,8 +29,18 @@ export class LoginPageComponent implements OnInit {
 
   sendLogin(): void {
     const {email, password} = this.formLogin.value;
-    
-    this._AuthService.sendCredentials(email, password);
+    this._AuthService.sendCredentials(email, password)
+      .subscribe({
+        next:(response)=>{
+          const {tokenSession,data} = response;
+          this.router.navigate(['/','tracks'])
+        },
+        error: (err) => {
+          this.errorSession = true;
+          console.log("No se pudo acceder")
+        }
+      })
     
   }
+
 }

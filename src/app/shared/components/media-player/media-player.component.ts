@@ -30,13 +30,20 @@ export class MediaPlayerComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
-    const observer1: Subscription = this.multimediaService.callBack.subscribe(
-      (response: TrackModel)=>{
-        console.log('Recibiendo Cancion..', response);
-      }
-    );
+    // const observer1: Subscription = this.multimediaService.callBack.subscribe(
+    //   (response: TrackModel)=>{
+    //     console.log('Recibiendo Cancion..', response);
+    //   }
+    // );
+    // this.listObservers = [observer1];
 
-    this.listObservers = [observer1];
+    const myObservable1$ = this.multimediaService.myObservable2$
+    .subscribe({
+       next: (response)=>{
+         console.log('Recibiendo Cancion..', response);
+       },
+       error: (err) =>{console.log(`Error de conexion ${err}`);}
+     });
   }
 
   ngOnDestroy(): void {

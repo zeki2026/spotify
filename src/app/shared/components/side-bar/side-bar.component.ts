@@ -31,7 +31,7 @@ export class SideBarComponent implements OnInit {
       {
         name: 'Buscar',
         icon: 'bi bi-search',
-        router: ['/', 'auth']
+        router: ['/', 'history']
       },
       {
         name: 'Tu biblioteca',
