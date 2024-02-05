@@ -41,7 +41,7 @@ export class TrackService {
         // map((dataReverse)=>{
           //   return dataReverse.filter((track:TrackModel)=>track._id != 1)
           // })
-        tap(data=>console.log(data)),
+        // tap(data=>console.log(data)),
         catchError((err)=>{
           const {status,statusText} = err;
           console.log('Se murio la peticion http',status,statusText);
