@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HistoryPageComponent } from './history-page.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SearchComponent } from '@modules/history/components/search/search.component';
+import { PlayListBodyComponent } from '@shared/components/play-list-body/play-list-body.component';
+import { OrderListPipe } from '@shared/pipe/order-list.pipe';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('HistoryPageComponent', () => {
   let component: HistoryPageComponent;
@@ -8,7 +13,10 @@ describe('HistoryPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HistoryPageComponent]
+      imports: [HttpClientTestingModule],
+      declarations: [
+        HistoryPageComponent],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
     

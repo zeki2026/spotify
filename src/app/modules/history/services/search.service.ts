@@ -16,7 +16,7 @@ export class SearchService {
     return this.http.get(`${this.URL}/tracks?src=${term}`)
     .pipe(
       map((dataRaw:any) => {
-        return dataRaw.data.find((track:any) => track.name === term)
+        return dataRaw.data
       })
     )
   } 

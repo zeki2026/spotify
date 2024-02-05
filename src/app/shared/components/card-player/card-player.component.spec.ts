@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardPlayerComponent } from './card-player.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CardPlayerComponent', () => {
   let component: CardPlayerComponent;
@@ -8,7 +9,8 @@ describe('CardPlayerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CardPlayerComponent]
+      declarations: [CardPlayerComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
     

@@ -17,6 +17,6 @@ export class HistoryPageComponent implements OnInit {
   }
 
   receiveData(term: string): void {
-    this.listResults$ = this.searchService.searchTracks$(term)
+    this.listResults$ = this.searchService.searchTracks$(term);
   }
 }

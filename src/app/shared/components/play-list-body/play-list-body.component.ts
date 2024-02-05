@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TrackModel } from '@core/models/track.model';
 
+
 @Component({
   selector: 'app-play-list-body',
   templateUrl: './play-list-body.component.html',
@@ -13,7 +14,9 @@ export class PlayListBodyComponent implements OnInit {
     property: null,
     order: 'desc'
   }
-  constructor() { }
+  constructor() { 
+     
+  }
 
   ngOnInit() {
   }
